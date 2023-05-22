@@ -19,6 +19,8 @@ int main() {
             break;
         case '2':
             EditarUsuario();
+        case '3':
+            ExcluirUsuario();
         case '0':
             printf("--------Fechando programa--------\n");
             break;

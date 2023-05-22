@@ -203,3 +203,55 @@ int EditarUsuario(){
     return -1;
 }
 
+
+int ExcluirUsuario() {
+    char email[100];
+    int certeza;
+
+    printf("Digite o email do usuario: ");
+    scanf("%99[^\n]", email); 
+
+    for (int i = 0; i < numUsuarios; i++) {
+        if (strcmp(universalEmail[i], email) == 0) {
+            printf("id: %d\n", universalID[i]);
+            printf("nome: %s\n", universalNome[i]);
+            printf("sexo: %s\n", universalSexo[i]);
+            printf("endereco: %s\n", universalEndereco[i]);
+            printf("altura: %.2lf\n", universalAltura[i]);
+            printf("status de vacinacao: %d\n", universalVacina[i]);
+
+            printf("Tem certeza que deseja excluir esse usuario?\n1 - sim 0 - nao\n");
+            scanf("%d", &certeza);
+
+            if (certeza == 1) {
+                for (int j = i + 1; j < numUsuarios; j++) {
+                    universalID[j - 1] = universalID[j];
+                    strcpy(universalEmail[j - 1], universalEmail[j]);
+                    strcpy(universalNome[j - 1], universalNome[j]);
+                    strcpy(universalSexo[j - 1], universalSexo[j]);
+                    strcpy(universalEndereco[j - 1], universalEndereco[j]);
+                    universalAltura[j - 1] = universalAltura[j];
+                    universalVacina[j - 1] = universalVacina[j];
+                }
+
+                universalID[numUsuarios - 1] = 0;
+                memset(universalEmail[numUsuarios - 1], 0, sizeof(universalEmail[numUsuarios - 1]));
+                memset(universalNome[numUsuarios - 1], 0, sizeof(universalNome[numUsuarios - 1]));
+                memset(universalSexo[numUsuarios - 1], 0, sizeof(universalSexo[numUsuarios - 1]));
+                memset(universalEndereco[numUsuarios - 1], 0, sizeof(universalEndereco[numUsuarios - 1]));
+                universalAltura[numUsuarios - 1] = 0;
+                universalVacina[numUsuarios - 1] = 0;
+                numUsuarios--;
+
+                printf("Usuario excluido com sucesso!\n");
+                return 0;
+            }
+            else if (certeza == 0) {
+                printf("Finalizando funcao ExcluirUsuario!\n");
+                return 0;
+            }
+        }
+    }
+    printf("Usuario nao encontrado\n");
+    return -2; 
+}
