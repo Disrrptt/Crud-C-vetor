@@ -21,6 +21,8 @@ int main() {
             EditarUsuario();
         case '3':
             ExcluirUsuario();
+        case '4':
+            BuscarPorEmail();
         case '0':
             printf("--------Fechando programa--------\n");
             break;
