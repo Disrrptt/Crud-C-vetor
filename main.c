@@ -23,6 +23,8 @@ int main() {
             ExcluirUsuario();
         case '4':
             BuscarPorEmail();
+        case '5':
+            ImprimirUsuarios();
         case '0':
             printf("--------Fechando programa--------\n");
             break;

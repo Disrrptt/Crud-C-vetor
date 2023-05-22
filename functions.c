@@ -281,3 +281,17 @@ int BuscarPorEmail(){
         }
     }
 }
+
+
+int ImprimirUsuarios(){
+    for(int i = 0; i < numUsuarios; i++){
+        printf("\n----------USUARIO %d----------\n", i+1);
+        printf("id: %d\n", universalID[i]);
+        printf("email: %s\n", universalEmail[i]);
+        printf("nome: %s\n", universalNomeCompleto[i]);
+        printf("sexo: %s\n", universalSexo[i]);
+        printf("endereco: %s\n", universalEndereco[i]);
+        printf("altura: %.2lf\n", universalAltura[i]);
+        printf("status de vacinacao: %d\n\n", universalVacina[i]);
+    }
+}
