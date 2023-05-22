@@ -26,11 +26,11 @@ int backupVacina[MAX_USUARIOS];
 
 void AbrirMenu(){
 
-    printf("1 - Adicionar Usuario\n");
-    printf("2 - Editar Usuario\n");
+    printf("1 - Adicionar um novo usuario\n");
+    printf("2 - Editar um Usuario\n");
     printf("3 - Excluir usuario\n");
-    printf("4 - Buscar por Email\n");
-    printf("5 - Imprimir todos os usuarios\n");
+    printf("4 - Buscar por usuario por Email\n");
+    printf("5 - Imprimir todos os usuarios cadastrados\n");
     printf("6 - Fazer Backup dos usuarios\n");
     printf("7 - Restaurar os dados\n");
     printf("0 - Fechar programa\n");
@@ -54,7 +54,7 @@ int AdicionarUsuario(){
         for(int i = 0; i < numUsuarios; i++)
         {
             if(universalID[i] == id){
-                printf("Usuario ja existe\n");
+                printf("Usuario cadastrado ja existe\n");
                 id = 00000;
                 validacao = 1;
                 break;
@@ -136,7 +136,7 @@ int EditarUsuario(){
     char nome[100], email[100], sexo[10], endereco[100];
     double altura;
 
-    printf("Digite o email do usuario: ");
+    printf("Digite o email do usuario cadastrado: ");
     scanf(" %[^\n]", email);
 
     for(int i = 0; i < numUsuarios + 1; i++){
@@ -208,7 +208,7 @@ int ExcluirUsuario() {
     char email[100];
     int certeza;
 
-    printf("Digite o email do usuario: ");
+    printf("Digite o email do usuario cadastrado: ");
     scanf("%99[^\n]", email); 
 
     for (int i = 0; i < numUsuarios; i++) {
