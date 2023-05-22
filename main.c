@@ -8,6 +8,23 @@
 void AbrirMenu();
 #define MAXIMO_USUARIOS 1000
 int numUsuarios = 0;
+//dados dos usuarios
+int universalID[MAXIMO_USUARIOS];
+char universalNome[MAXIMO_USUARIOS][100];
+char universalEmail[MAXIMO_USUARIOS][100];
+char universalSexo[MAXIMO_USUARIOS][10];
+char universalEndereco[MAXIMO_USUARIOS][100];
+double universalAltura[MAXIMO_USUARIOS];
+int universalVacina[MAXIMO_USUARIOS];
+//backup para as informacoes 
+int backupID[MAXIMO_USUARIOS];
+char backupNome[MAXIMO_USUARIOS][100];
+char backupEmail[MAXIMO_USUARIOS][100];
+char backupSexo[MAXIMO_USUARIOS][10];
+char backupEndereco[MAXIMO_USUARIOS][100];
+double backupAltura[MAXIMO_USUARIOS];
+int backupVacina[MAXIMO_USUARIOS];
+
 int main()
 {
     int id, vacina, validacao;
@@ -97,11 +114,14 @@ int main()
                 printf("Tente novamente: ");
                 scanf("%d", &vacina);
             }
-            numUsuarios = adicionarUsuario(id, nome, email, sexo, endereco, altura, vacina, numUsuarios);
+            numUsuarios = adicionarUsuario(id, nome, email, sexo, endereco, altura, vacina, numUsuarios, universalID, universalNome, universalEmail, universalSexo, universalEndereco, universalAltura, universalVacina);
             break; 
-
+        case '2':
+            printf("Digite o email do usuario que voce deseja editar");
+            break;
         default: 
             break;
         }
         
     } while (opcao!='0');
+}
