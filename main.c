@@ -11,7 +11,7 @@ int numUsuarios = 0;
 int main()
 {
     int id, vacina, validacao;
-    char nome[100], email[100], sexo[10], endereco[100], vacinas[10], opcao[1];
+    char nome[100], email[100], sexo[10], endereco[100], vacinas[10], opcao = ' ';
     double altura;
 
     do {
@@ -23,7 +23,7 @@ int main()
         case '1':
             if (numUsuarios >= MAXIMO_USUARIOS){
                 printf("Numero de usuarios alcançou o limite D:\n");
-                 }
+                }
             srand(time(NULL));
             do{
                 id = rand() % 100000;
@@ -62,13 +62,13 @@ int main()
                 if(validacao == 1){
                     printf("Email invalido, tente novamente: ");
                     scanf(" %[^\n]", email);
-                 }
+                }
             } while(validacao == 1);
    
 
-             printf("Digite seu sexo(Masculino/Feminino/Indefinido): ");
-             scanf(" %[^\n]", sexo);
-             sexo[0] = toupper(sexo[0]);
+            printf("Digite seu sexo(Masculino/Feminino/Indefinido): ");
+            scanf(" %[^\n]", sexo);
+            sexo[0] = toupper(sexo[0]);
 
             while(!(strcmp(sexo, "Masculino") == 0 || strcmp(sexo, "Feminino") == 0 || strcmp(sexo, "Indefinido") == 0)){
                 printf("Sexo invalido tente novamente: ");
@@ -77,8 +77,8 @@ int main()
             }
             
             
-             printf("Digite seu endereco: ");
-             scanf(" %[^\n]", endereco);
+            printf("Digite seu endereco: ");
+            scanf(" %[^\n]", endereco);
 
             printf("Digite sua altura: ");
             scanf("%lf", &altura);
@@ -89,8 +89,8 @@ int main()
             }
             
             
-              printf("Digite o estado de sua vacinacao (1 = Vacinado/ 0 = Nao vacinado): ");
-              scanf("%d", &vacina);
+            printf("Digite o estado de sua vacinacao (1 = Vacinado/ 0 = Nao vacinado): ");
+            scanf("%d", &vacina);
     
             while(!(vacina == 1 || vacina == 0)){
                 printf("So sao aceitos 1 e 0 como valor\n");
@@ -98,73 +98,10 @@ int main()
                 scanf("%d", &vacina);
             }
             numUsuarios = adicionarUsuario(id, nome, email, sexo, endereco, altura, vacina, numUsuarios);
+            break; 
 
-
-            
-
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            break;
-
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-        }
         default: 
             break;
-    } while (opcao!='0'); 
-    
+        }
         
-    
-    
-    
-    
-    
-
-
-
-
-
-    return 0;
-}
+    } while (opcao!='0');
