@@ -25,6 +25,8 @@ int main() {
             BuscarPorEmail();
         case '5':
             ImprimirUsuarios();
+        case '6':
+            BackUp();
         case '0':
             printf("--------Fechando programa--------\n");
             break;

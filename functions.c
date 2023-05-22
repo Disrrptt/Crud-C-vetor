@@ -295,3 +295,35 @@ int ImprimirUsuarios(){
         printf("status de vacinacao: %d\n\n", universalVacina[i]);
     }
 }
+
+int BackUp(){
+    int certeza;
+
+    printf("tem certeza que deseja fazer backup?\n1 - sim 0 - nao\n");
+    scanf("%d", &certeza);
+
+    if(certeza == 1){
+        for(int i = 0; i < numUsuarios; i++){
+            backupID[i] = universalID[i];
+            strcpy(backupNome[i], universalNome[i]);
+            strcpy(backupEmail[i], universalEmail[i]);
+            strcpy(backupSexo[i], universalSexo[i]);
+            strcpy(backupEndereco[i], universalEndereco[i]);
+            backupAltura[i] = universalAltura[i];
+            backupVacina[i] = universalVacina[i];
+        }
+        
+        printf("BackUp concluido com sucesso!\n\n");
+       
+        return 0;
+    }
+    else if(certeza == 0){
+        printf("Backup cancelado!\n\n");
+        return 0;
+    }
+    else {
+        printf("Opcao invalida!\n\n");
+        return -1;
+    }
+}
+
