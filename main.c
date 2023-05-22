@@ -27,6 +27,8 @@ int main() {
             ImprimirUsuarios();
         case '6':
             BackUp();
+        case '7':
+            RestaurarDados();
         case '0':
             printf("--------Fechando programa--------\n");
             break;

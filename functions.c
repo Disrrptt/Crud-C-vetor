@@ -327,3 +327,33 @@ int BackUp(){
     }
 }
 
+int RestaurarDados(){
+    int certeza;
+
+    printf("tem certeza que deseja restaurar dados?\n1 - sim 0 - nao\n");
+    scanf("%d", &certeza);
+
+    if(certeza == 1){
+        for(int i = 0; i < numUsuarios; i++){
+            universalID[i] = backupID[i];
+            strcpy(universalNomeCompleto[i], backupNome[i]);
+            strcpy(universalEmail[i], backupEmail[i]);
+            strcpy(universalSexo[i], backupSexo[i]);
+            strcpy(universalEndereco[i], backupEndereco[i]);
+            universalAltura[i] = backupAltura[i];
+            universalVacina[i] = backupVacina[i];
+        }
+        
+        printf("Restauracao concluida com sucesso!\n\n");
+       
+        return 0;
+    }
+    else if(certeza == 0){
+        printf("Saindo da função de restaurar dados!\n\n");
+        return 0;
+    }
+    else {
+        printf("Opcao invalida\n");
+        return -1;
+    }
+}
