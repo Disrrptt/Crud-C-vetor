@@ -84,6 +84,7 @@ void AbrirMenu(){
 }
 int gerarID(){ 
     int id;
+    int validacao;
     srand(time(NULL));
     do{
         id = rand() % 100000;
@@ -337,7 +338,7 @@ int ImprimirUsuarios(){
         printf("\n----------USUARIO %d----------\n", i+1);
         printf("id: %d\n", universalID[i]);
         printf("email: %s\n", universalEmail[i]);
-        printf("nome: %s\n", universalNomeCompleto[i]);
+        printf("nome: %s\n", universalNome[i]);
         printf("sexo: %s\n", universalSexo[i]);
         printf("endereco: %s\n", universalEndereco[i]);
         printf("altura: %.2lf\n", universalAltura[i]);
@@ -385,7 +386,7 @@ int RestaurarDados(){
     if(certeza == 1){
         for(int i = 0; i < numUsuarios; i++){
             universalID[i] = backupID[i];
-            strcpy(universalNomeCompleto[i], backupNome[i]);
+            strcpy(universalNome[i], backupNome[i]);
             strcpy(universalEmail[i], backupEmail[i]);
             strcpy(universalSexo[i], backupSexo[i]);
             strcpy(universalEndereco[i], backupEndereco[i]);
@@ -398,7 +399,7 @@ int RestaurarDados(){
         return 0;
     }
     else if(certeza == 0){
-        printf("Saindo da função de restaurar dados!\n\n");
+        printf("Saindo da funcao de restaurar dados!\n\n");
         return 0;
     }
     else {
